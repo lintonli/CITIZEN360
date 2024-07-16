@@ -1,0 +1,92 @@
+<!-- <p>views works!</p> -->
+<!-- <p>dashboard works!</p> -->
+<div class="dashboard">
+  <div class="main">
+    <div class="nav">
+      <h1>Connect</h1>
+
+      <div class="logout" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </div>
+    </div>
+     <div class="menu-icon" (click)="toggleMenu()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+    <div class="container1">
+      <div class="menu" [class.show]="menuVisible">
+       
+        <div class="icons">
+          <ion-icon name="home-sharp"></ion-icon>
+          <a routerLink="/dashboard">Home</a>
+        </div>
+        <div class="icons">
+          <ion-icon name="color-wand-sharp"></ion-icon>
+          <a routerLink="/incidents">Incidents</a>
+        </div>
+        <div class="icons"*ngIf="role!=='ADMIN'">
+          <ion-icon name="server-sharp"></ion-icon>
+          <a routerLink="/polls">Polls</a>
+        </div>
+        <div class="icons" *ngIf="role==='CITIZEN'">
+          <ion-icon name="chatbubbles-sharp"></ion-icon>
+          <a routerLink="/chat">Chatbot</a>
+        </div>
+        <div class="icons" *ngIf="role==='CITIZEN'">
+          <ion-icon name="add-circle-outline"></ion-icon>
+          <a routerLink="/addincident">Add Incidents</a>
+        </div>
+        <div class="icons" *ngIf="role!=='ADMIN'">
+          <ion-icon name="eye-outline"></ion-icon>
+          <a routerLink="/views">Views</a>
+        </div>
+        <div class="icons" *ngIf="role==='ADMIN'">
+          <ion-icon name="people-circle-outline"></ion-icon>
+          <a routerLink="">Users</a>
+        </div>
+      </div>
+      <div class="content">
+        <div class="opt">
+<h1>BROWSE VIEWS</h1>
+        <div class="add" *ngIf="role==='CITIZEN'" (click)="toggleModal()">
+          <ion-icon name="add-circle-outline"></ion-icon>
+          <a routerLink="">Add View</a>
+        </div>
+        <div class="summarize" *ngIf="role==='GOVERNMENT'">
+          <ion-icon name="eye-outline"></ion-icon>
+          <a routerLink="/chat">Summarize Views</a>
+        </div>
+        </div>
+        
+        <div class="content1">
+           <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <span class="close" (click)="toggleModal()">&times;</span>
+     <app-add-view (closeModal)="toggleModal()"></app-add-view>
+    </div>
+  </div>
+          <table>
+            <thead>
+              <tr>
+                <th class="user-info"> Created By</th>
+                <th class="body-content"> Views</th>
+                <!-- <div class="div"></div> -->
+              </tr>
+            </thead>
+            <tbody >
+            <tr *ngFor="let view of views">
+              <td class="user-info">
+              <p>{{view.userName}}</p>
+              <p>{{view.date}}</p>
+              </td>
+              <td class="body-content">
+                <p>{{view.body}}</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

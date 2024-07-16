@@ -1,0 +1,154 @@
+.dashboard{
+    padding: 0%;
+    margin: 0%;
+    height: 100vh;
+    width: 100vw;
+    
+}
+.main{
+    height: 95%;
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid #C7E4FF;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    background-color: #f0f0f0;
+}
+.nav{
+    display: flex;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+    background-color: #1D25DC;
+    color: white;
+    justify-content: space-between;
+}
+.nav ion-icon{
+    margin-right: 20px;
+     width: 30px;
+    height: 30px;
+}
+.nav h1{
+    font-weight: bolder;
+    font-size: 36px;
+    margin-left: 10px;
+}
+.container1{
+    display: flex;
+    /* border:1px solid black; */
+    height: 85%;
+    width: 100%;
+}
+.menu{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap:30px;
+    /* justify-content: space-around; */
+    background-color: white;
+    /* border: 1px solid red; */
+    padding: 10px;
+    margin: 20px;
+}
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+.content{
+    width: 80%;
+    /* border:1px solid green; */
+    margin: 10px;
+
+}.content h1{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.content1{
+    width: 100%;
+   
+    border: 1px solid black;
+    height: 95%;
+    background-color: white;
+}
+.icons{
+    display: flex;
+    gap:20px;
+    align-items: center;
+}
+.icons a{
+    /* font-size: 25px; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.icons a:hover{
+    color: blue;
+}
+.icons ion-icon{
+    width: 30px;
+    height: 30px;
+}
+.select{
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-end;
+}
+.mt-2{
+    width: 200px;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding: 20px;
+}
+.btn{
+    width: 200px;
+    background-color: FFD400;
+    /* color: black; */
+}
+
+.bg-custom-yellow {
+  background-color: #FFD400;
+  color: black;
+}
+
+.hover\:bg-custom-yellow-dark:hover {
+  background-color: #e6be00; /* Slightly darker shade for hover */
+}
+
+.focus-visible\:outline-custom-yellow:focus-visible {
+  outline-color: #FFD400;
+}
+.date{
+    border: 1px solid black;
+    background-color: #f0f0f0
+}
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .menu.show {
+    display: flex;
+    width: 40%;
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 70%;
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: black;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+ 
+}

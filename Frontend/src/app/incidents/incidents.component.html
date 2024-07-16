@@ -1,0 +1,64 @@
+<!-- <p>incidents works!</p> -->
+<!-- <p>dashboard works!</p> -->
+<div class="dashboard">
+  <div class="main">
+    <div class="nav">
+      <h1>Connect</h1>
+      <div class="logout" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </div>
+    </div>
+     <div class="menu-icon" (click)="toggleMenu()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+    <div class="container1">
+      <div class="menu" [class.show]="menuVisible">
+        <div class="icons">
+          <ion-icon name="home-sharp"></ion-icon>
+          <a routerLink="/dashboard">Home</a>
+        </div>
+        <div class="icons">
+          <ion-icon name="color-wand-sharp"></ion-icon>
+          <a routerLink="/incidents">Incidents</a>
+        </div>
+        <div class="icons"*ngIf="role!=='ADMIN'">
+          <ion-icon name="server-sharp"></ion-icon>
+          <a routerLink="/polls">Polls</a>
+        </div>
+        <div class="icons" *ngIf="role==='CITIZEN'">
+          <ion-icon name="chatbubbles-sharp"></ion-icon>
+          <a routerLink="/chat">Chatbot</a>
+        </div>
+        <div class="icons" *ngIf="role==='CITIZEN'">
+          <ion-icon name="add-circle-outline"></ion-icon>
+          <a routerLink="/addincident">Add Incidents</a>
+        </div>
+        <div class="icons" *ngIf="role!=='ADMIN'">
+          <ion-icon name="eye-outline"></ion-icon>
+          <a routerLink="/views">Views</a>
+        </div>
+        <div class="icons" *ngIf="role==='ADMIN'">
+          <ion-icon name="people-circle-outline"></ion-icon>
+          <a routerLink="/users">Users</a>
+        </div>
+      </div>
+      <div class="content">
+        <h1>TRENDING INCIDENTS</h1>
+        <div class="content1">
+          <ul>
+            <li *ngFor="let incident of incidents" class="incident-item">
+
+              <div class="inci"  [ngStyle]="{'background-image': 'url(' + incident.media + ')'}">
+            <h1>{{incident.location}}</h1>
+            <!-- <img src="{{incident.media}}" alt=""> -->
+            <p>{{incident.body}}</p>
+            <h6>{{incident.date}}</h6>
+          </div>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

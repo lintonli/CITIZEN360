@@ -1,0 +1,106 @@
+<!-- <p>add-incidents works!</p> -->
+<!-- <p>incidents works!</p> -->
+<!-- <p>dashboard works!</p> -->
+<div class="dashboard">
+  <div class="main">
+    <div class="nav">
+      <h1>Connect</h1>
+      <div class="logout" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </div>
+    </div>
+     <div class="menu-icon" (click)="toggleMenu()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+    <div class="container1">
+      <div class="menu" [class.show]="menuVisible">
+        <div class="icons">
+          <ion-icon name="home-sharp"></ion-icon>
+          <a routerLink="/dashboard">Home</a>
+        </div>
+        <div class="icons">
+          <ion-icon name="color-wand-sharp"></ion-icon>
+          <a routerLink="/incidents">Incidents</a>
+        </div>
+        <div class="icons" *ngIf="role !== 'ADMIN'">
+          <ion-icon name="server-sharp"></ion-icon>
+          <a routerLink="/polls">Polls</a>
+        </div>
+        <div class="icons" *ngIf="role === 'CITIZEN'">
+          <ion-icon name="chatbubbles-sharp"></ion-icon>
+          <a routerLink="/chat">Chatbot</a>
+        </div>
+        <div class="icons" *ngIf="role === 'CITIZEN'">
+          <ion-icon name="add-circle-outline"></ion-icon>
+          <a routerLink="/addincidents">Add Incidents</a>
+        </div>
+        <div class="icons" *ngIf="role !== 'ADMIN'">
+          <ion-icon name="eye-outline"></ion-icon>
+          <a routerLink="/views">Views</a>
+        </div>
+        <div class="icons" *ngIf="role === 'ADMIN'">
+          <ion-icon name="people-circle-outline"></ion-icon>
+          <a routerLink="">Users</a>
+        </div>
+      </div>
+      <div class="content">
+        <h1>New Incident</h1>
+        <div class="content1">
+          <form class="inputs" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="select" style="width: 200px">
+              <select
+                name="Choose a location"
+                 formControlName="location"
+              >
+                <option value="0">Select a location</option>
+                <option value="Nairobi">Nairobi</option>
+                <option value="Kisumu">Kisumu</option>
+                <option value="Eldoret">Eldoret</option>
+                <option value="Nakuru">Nakuru</option>
+              </select>
+            </div>
+            <div class="mt-2">
+              <input
+                id="text"
+                name="text"
+                type="text"
+                placeholder="     Attach a media"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              formControlName="media"/>
+            </div>
+            <div class="topic">
+              <textarea
+                name="myTextBox"
+                cols="50"
+                rows="5"
+                style="
+                  background-color: #f0f0f0;
+                  color: #ad8c08;
+                  border: 5px double #f0f0f0;
+                "
+                formControlName="body"
+              >
+Enter some text...</textarea
+              >
+              <br />
+            </div>
+            <label>
+      Date:
+      <input type="date" class="date" formControlName="date" />
+    </label>
+            <div class="btn">
+             
+              <button
+  type="submit"
+  class="flex w-full justify-center rounded-md bg-custom-yellow px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-custom-yellow-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-custom-yellow"
+>
+  POST INCIDENT
+</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+.mt-2 input{
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+}

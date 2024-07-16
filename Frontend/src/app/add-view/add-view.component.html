@@ -1,0 +1,9 @@
+<!-- <p>add-view works!</p> -->
+ <div class="card">
+    <h2>New View</h2>
+    <form (ngSubmit)="onSubmit()" [formGroup]="addview">
+        <label for="">Body:</label>
+        <input type="text" placeholder="Enter your text" id="body" formControlName="body">
+        <button type="submit" [disabled]="!addview.valid">Enter</button>
+    </form>
+ </div>

@@ -1,0 +1,69 @@
+<!-- <p>polls works!</p> -->
+<!-- <p>dashboard works!</p> -->
+<div class="dashboard">
+  <div class="main">
+    <div class="nav">
+      <h1>Connect</h1>
+      <div class="logout" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="menu-icon" (click)="toggleMenu()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+    <div class="container1">
+      <div class="menu" [class.show]="menuVisible">
+        <div class="icons">
+          <ion-icon name="home-sharp"></ion-icon>
+          <a routerLink="/dashboard">Home</a>
+        </div>
+        <div class="icons">
+          <ion-icon name="color-wand-sharp"></ion-icon>
+          <a routerLink="/incidents">Incidents</a>
+        </div>
+        <div class="icons"*ngIf="role!=='ADMIN'">
+          <ion-icon name="server-sharp"></ion-icon>
+          <a routerLink="">Polls</a>
+        </div>
+        <div class="icons" *ngIf="role==='CITIZEN'">
+          <ion-icon name="chatbubbles-sharp"></ion-icon>
+          <a routerLink="/chat">Chatbot</a>
+        </div>
+        <div class="icons" *ngIf="role==='CITIZEN'">
+          <ion-icon name="add-circle-outline"></ion-icon>
+          <a routerLink="/addincident">Add Incidents</a>
+        </div>
+        <div class="icons" *ngIf="role!=='ADMIN'">
+          <ion-icon name="eye-outline"></ion-icon>
+          <a routerLink="/views">Views</a>
+        </div>
+        <div class="icons" *ngIf="role==='ADMIN'">
+          <ion-icon name="people-circle-outline"></ion-icon>
+          <a routerLink="">Users</a>
+        </div>
+      </div>
+      <div class="content">
+        <h1>POLLS</h1>
+        <div class="content1">
+          <div class="inci" *ngFor="let poll of polls" >
+             <div *ngIf="errorMessage[poll.ID]" class="error-message">{{errorMessage[poll.ID]}}</div>
+             <div *ngIf="successMessage[poll.ID]" class="success-message">{{successMessage[poll.ID]}}</div>
+            <h2>{{poll.title}}</h2>
+            <div class="poll-options" *ngFor="let option of poll.options">
+                <label class="radio">
+                    <input type="radio" [name]="'poll' + poll.ID"  [value]="option.name" [(ngModel)]="selectedOption[poll.ID]"/>{{option.name}}
+                </label>
+                <div class="poll-result">{{option.votes}}Votes</div>
+            </div>
+            <button (click)="vote(poll)" [disabled]="!selectedOption[poll.ID]" class="vote-btn">Vote</button>
+           
+            <!-- <div>
+                <input [(ngModel)]="newOption[poll.ID]" placeholder="Add Option" class="new-option"/>
+                <button (click)="addOption(poll)" [disabled]="!newOption[poll.ID]" class="new-option-btn"> Add</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
