@@ -9,5 +9,5 @@ export const RegisterSchema = Joi.object({
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
       )
     ),
-    Rolename:Joi.string().required()
+    Rolename:Joi.string().required(),
 });

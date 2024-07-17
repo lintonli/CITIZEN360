@@ -5,3 +5,4 @@ AS
 BEGIN
     SELECT * FROM Users WHERE EMAIL = @EMAIL;
 END;
+EXEC getUser @EMAIL="lintonli162@gmail.com";

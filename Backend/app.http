@@ -1,0 +1,28 @@
+POST  http://localhost:4000/auth/register
+Content-Type: application/json
+
+{
+    "UNAME":"LINTON",
+    "EMAIL":"lintonli162@gmail.com",
+    "UPASSWORD":"Lint@123",
+    "Rolename":"CITIZEN"
+   
+}
+
+
+####
+
+POST http://localhost:4000/auth/login 
+Content-Type: application/json
+lintonli162@gmail.com
+{
+    "EMAIL":"lintonli162@gmail.com",
+    "UPASSWORD":"Lint@123"
+}
+
+####
+
+GET  http://localhost:4000/auth
+
+#############
+DELETE http://localhost:4000/auth/c3c9355a-9596-4266-8d3a-1d37505fc924

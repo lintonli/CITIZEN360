@@ -11,5 +11,5 @@ export interface IUser{
 export interface Payload {
   SUB: string;
   UNAME: string;
-  UROLE: string;
+  Rolename: string;
 }
