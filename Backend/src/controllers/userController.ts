@@ -92,6 +92,7 @@ try {
          const { EMAIL } = req.body;
          const user = (await databaseInstance.exec("getUser", { EMAIL }))
            .recordset[0] as IUser;
+           console.log(user)
          if (user && user.EMAIL) {
            await databaseInstance.exec("approveStatus", { ID: req.params.Id });
            return res
