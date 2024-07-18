@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { approveUser, deleteUser, getUsers, loginUser, registerUser } from "../controllers/userController";
+import { approveUser, deleteUser, forgotPassword, getUsers, loginUser, registerUser } from "../controllers/userController";
 const authRoutes= Router()
 
 authRoutes.post("/register", registerUser)
 authRoutes.post("/login", loginUser)
-authRoutes.delete("/:id", deleteUser)
-authRoutes.put("/approve/:id", approveUser)
+authRoutes.delete("/:Id", deleteUser)
+authRoutes.put("/approve/:Id", approveUser)
+authRoutes.patch("/:email", forgotPassword)
 authRoutes.get("", getUsers)
  export default authRoutes;

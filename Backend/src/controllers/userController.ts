@@ -75,10 +75,11 @@ export const loginUser = async (req: Request, res: Response) => {
  };
  export const deleteUser = async (req:Request<{Id:string}> ,res:Response)=>{
 try {
-    const{EMAIL}=req.body
-    const user = (await databaseInstance.exec("getUser",{EMAIL})).recordset[0] as IUser
+    console.log(req.params.Id);
+    
+    const user = (await databaseInstance.exec("getUserId",{ID:req.params.Id})).recordset[0] as IUser
     console.log(user)
-    if(user && user.EMAIL){
+    if(user && user.ID){
         await databaseInstance.exec("deleteUser",{ID:req.params.Id});
         return res.status(200).json({message:"User deleted successfully"})
     }
@@ -89,11 +90,11 @@ try {
  };
   export const approveUser= async (req:Request<{Id:string}>, res:Response)=>{
     try {
-         const { EMAIL } = req.body;
-         const user = (await databaseInstance.exec("getUser", { EMAIL }))
+       
+         const user = (await databaseInstance.exec("getUserId", {ID:req.params.Id }))
            .recordset[0] as IUser;
            console.log(user)
-         if (user && user.EMAIL) {
+         if (user && user.ID) {
            await databaseInstance.exec("approveStatus", { ID: req.params.Id });
            return res
              .status(200)
@@ -102,5 +103,23 @@ try {
          return res.status(400).json({ message: "User not found" });
     } catch (error) {
         return res.status(500).json(error)
+    }
+  }
+  export const forgotPassword = async(req:Request<{email:string}>, res:Response)=>{
+    try {
+      const user = (await databaseInstance.exec('getUser',{EMAIL:req.params.email})).recordset[0] as IUser
+      if(user && user.EMAIL){
+        const {UPASSWORD}=req.body
+
+        const hashedPassword=await Bcrypt.hash(UPASSWORD, 10)
+        await databaseInstance.exec("forgotPassword",{
+          EMAIL:req.params.email,
+          UPASSWORD:hashedPassword
+        })
+        return res.status(200).json({message:"Password changed successfully"})
+      }
+      return res.status(404).json({message:"User not found"})
+    } catch (error) {
+      return res.status(500).json(error)
     }
   }

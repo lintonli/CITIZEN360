@@ -25,11 +25,18 @@ Content-Type: application/json
 GET  http://localhost:4000/auth
 
 #############
-DELETE http://localhost:4000/auth/JOHN@GMAIL.COM
+DELETE http://localhost:4000/auth/1
 
 #####
-PUT  http://localhost:4000/auth/approve/69febd2f-aae7-4947-917d-4ac230b9364d
+PUT  http://localhost:4000/auth/approve/0bc36aa6-730d-49b3-966a-1a7925a33e3c
 
+#########
+PATCH  http://localhost:4000/auth/JOHN@GMAIL.COM
+Content-Type: application/json
+
+{
+    "UPASSWORD":"John@123"
+}
 
 ########
 POST http://localhost:4000/views
