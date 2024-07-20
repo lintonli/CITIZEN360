@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "UNAME":"Edimund",
-    "EMAIL":"lntonmw@ueab.ac.ke",
+    "EMAIL":"lintonmw@ueab.ac.ke",
     "UPASSWORD":"Lint@123",
     "Rolename":"GOVERNMENT"
    
@@ -28,7 +28,7 @@ GET  http://localhost:4000/auth
 DELETE http://localhost:4000/auth/1
 
 #####
-PUT  http://localhost:4000/auth/approve/0bc36aa6-730d-49b3-966a-1a7925a33e3c
+PUT  http://localhost:4000/auth/approve/6224d99d-975f-44c7-af60-ccc0bc2fd6a5
 
 #########
 PATCH  http://localhost:4000/auth/JOHN@GMAIL.COM
@@ -65,3 +65,23 @@ Content-Type: application/json
 
 ######
 GET  http://localhost:4000/incidents
+
+###############
+POST http://localhost:4000/polls
+Content-Type: application/json
+
+{
+    "TITLE":"OCCOPY MOH",
+    "USERID":"6224d99d-975f-44c7-af60-ccc0bc2fd6a5",
+    "OPTIONS":[
+        {
+            "PNAME":"YES"
+        },
+        {
+            "PNAME":"NO"
+        }
+    ]
+}
+
+#########
+GET  http://localhost:4000/polls

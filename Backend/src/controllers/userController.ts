@@ -93,7 +93,7 @@ try {
        
          const user = (await databaseInstance.exec("getUserId", {ID:req.params.Id }))
            .recordset[0] as IUser;
-           console.log(user)
+          //  console.log(user)
          if (user && user.ID) {
            await databaseInstance.exec("approveStatus", { ID: req.params.Id });
            return res
