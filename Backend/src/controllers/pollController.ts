@@ -48,5 +48,21 @@ export const getPollsOptions:RequestHandler=async(req, res)=>{
         return res.status(500).json(error)
     }
 }
+export const votePoll = async (req:Request, res:Response)=>{
+    try {
+        const Id= uid()
+        const{POLLID, OPTIONID, USERID}=req.body
+        await databaseInstance.exec("addVotes",{
+            ID:Id,
+            POLLID,
+            OPTIONID,
+            USERID
+        })
+        await databaseInstance.exec("addCount",{ID:OPTIONID})
+        return res.status(200).json({message:"poll voted successfully"})
+    } catch (error) {
+        return res.status(500).json(error)
+    }
+}
 
 
