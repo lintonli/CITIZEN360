@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KIKWETU TOURS&TRAVELS</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        padding: 20px;
+      }
+      .header {
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px;
+        text-align: center;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .content {
+        padding: 20px;
+      }
+      .content h2 {
+        font-size: 20px;
+        color: #333333;
+      }
+      .content p {
+        font-size: 16px;
+        color: #666666;
+      }
+      .footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #f1f1f1;
+        font-size: 14px;
+        color: #666666;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="header">
+        <h1>Welcome to CITIZEN_CONNECT360</h1>
+      </div>
+      <div class="content">
+        <h2>Hi <%= name %>,</h2>
+       ` <p>
+          You have invoked reset password action. Kindly press the link below 
+        </p>
+        <p><a href="<%= resetLink %>">Reset Password</a></p>`
+        <p>
+          If you have any questions, feel free to contact our support team at
+          support@connect360.com.
+        </p>
+       
+        <p>Best regards,</p>
+        <p>The CITIZEN_CONNECT360 Team</p>
+      </div>
+      <div class="footer"></div>
+    </div>
+  </body>
+</html>

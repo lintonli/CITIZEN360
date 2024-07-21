@@ -28,7 +28,7 @@ GET  http://localhost:4000/auth
 DELETE http://localhost:4000/auth/1
 
 #####
-PUT  http://localhost:4000/auth/approve/6224d99d-975f-44c7-af60-ccc0bc2fd6a5
+PUT  http://localhost:4000/auth/approve/eeceab03-293e-431c-9e79-9fec74ab19ac
 
 #########
 PATCH  http://localhost:4000/auth/JOHN@GMAIL.COM
